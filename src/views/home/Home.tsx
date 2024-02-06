@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import { WebglContainer } from "@/components/WebglContainer/WebglContainer";
+// import { WebglContainer } from "@/components/WebglContainer/WebglContainer";
 import { PixiContainer } from "@/components/PixiContainer/PixiContainer";
 
 export default defineComponent({
