@@ -12,10 +12,10 @@ class Katana implements IWeapon {
 @injectable()
 class Ninja implements IWarrior {
   @inject(TYPES.Weapon)
-  private _katana: IWeapon;
+  private _katana?: IWeapon;
 
   public fight() {
-    return this._katana.hit();
+    return this._katana?.hit();
   }
 
   public sneak() {

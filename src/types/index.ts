@@ -1,10 +1,10 @@
 export interface IWarrior {
-    fight(): string;
-    sneak(): string;
+  fight(): string | undefined;
+  sneak(): string;
 }
 
 export interface IWeapon {
-    hit(): string
+  hit(): string;
 }
 
-export * from './camera'
+export * from "./camera";
