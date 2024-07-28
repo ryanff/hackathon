@@ -1,8 +1,8 @@
-import { Scene } from "@/entitiy/Scene/Scene";
-import { PerspectiveCamera } from "@/entitiy/Camera/PerspectiveCamera";
+import { Scene } from "@/entity/Scene/Scene";
+import { PerspectiveCamera } from "@/entity/Camera/PerspectiveCamera";
 import { BoxGeometry, Camera, Mesh, MeshBasicMaterial } from "three";
 import { CameraParams } from "@/types";
-import { Render } from "@/entitiy/Render/Render";
+import { Render } from "@/entity/Render/Render";
 
 interface SceneState {
   scene: Scene | null;

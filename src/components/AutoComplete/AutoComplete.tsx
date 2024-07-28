@@ -22,7 +22,7 @@ export const AutoComplete = defineComponent({
   setup(props) {
     const subject$ = new Subject<string>();
 
-    const tags = ref<ListItem[]>(props.tags);
+    const displayTags = ref<ListItem[]>(props.tags);
 
     const searchKeyword = ref("");
 
@@ -49,7 +49,7 @@ export const AutoComplete = defineComponent({
     const addKeyword2Tags = () => {
       if (!searchKeyword.value) return;
       const tag = { name: searchKeyword.value };
-      tags.value.push(tag);
+      displayTags.value.push(tag);
       searchKeyword.value = "";
     };
 
@@ -81,7 +81,7 @@ export const AutoComplete = defineComponent({
             return new Promise((resolve) => {
               setTimeout(() => {
                 resolve(
-                  Array.from({ length: 10 }, (_, i) => ({
+                  Array.from({ length: 10 }, () => ({
                     name: `${text}-${Math.random().toFixed(2)}`,
                   }))
                 );
@@ -89,8 +89,8 @@ export const AutoComplete = defineComponent({
             });
           })
         )
-        .subscribe((res: any) => {
-          matchRes.value = res;
+        .subscribe((res: unknown) => {
+          matchRes.value = res as ListItem[];
         });
     };
 
@@ -104,7 +104,7 @@ export const AutoComplete = defineComponent({
     onBeforeUnmount(unBindEvents);
 
     return {
-      tags,
+      displayTags,
       searchKeyword,
       inputRef,
       matchRes,
@@ -117,7 +117,7 @@ export const AutoComplete = defineComponent({
     renderTags() {
       return (
         <div class="inline-block">
-          {this.tags.map((tag) => {
+          {this.displayTags.map((tag) => {
             return (
               <div class="inline-block mx-0.5 px-0.5 border rounded">
                 {tag.name}

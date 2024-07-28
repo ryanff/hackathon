@@ -9,7 +9,7 @@ const mockMatchPos = [
 /**
  * 缩放比例
  */
-const scale = 20;
+// const scale: number = 20;
 
 /**
  * 坐标系的x,y总长
@@ -42,7 +42,7 @@ const lineStyle = {
 /**
  * 文字样式
  */
-let textStyle = new TextStyle({
+const textStyle = new TextStyle({
   fontFamily: "Arial",
   fontSize: 12,
   fill: "white",
@@ -56,7 +56,7 @@ let textStyle = new TextStyle({
 });
 
 const drawCircle = (x: number, y: number, radius: number = 4) => {
-  let circle = new Graphics();
+  const circle = new Graphics();
   circle.beginFill(0x9966ff);
   circle.drawCircle(x, y, radius);
   circle.endFill();
@@ -69,7 +69,7 @@ const drawAxis = () => {
   /**
    * x轴
    */
-  let AxisX = new Graphics();
+  const AxisX = new Graphics();
   AxisX.lineStyle(lineStyle.width, lineStyle.color, lineStyle.alpha);
   AxisX.moveTo(0, 0);
   AxisX.lineTo(canvasX, 0);
@@ -81,10 +81,10 @@ const drawAxis = () => {
    */
   const interval = canvasX / defaultCount;
   for (let i = 0; i <= defaultCount; i++) {
-    let text = new Text(`${i * interval}`, textStyle);
+    const text = new Text(`${i * interval}`, textStyle);
     text.x = i * interval - 10;
     text.y = 10;
-    let line = new Graphics();
+    const line = new Graphics();
     line.lineStyle(lineStyle.width, lineStyle.color, lineStyle.alpha);
     line.moveTo(i * interval, 0);
     line.lineTo(i * interval, 5);
@@ -95,7 +95,7 @@ const drawAxis = () => {
   /**
    * y轴
    */
-  let AxisY = new Graphics();
+  const AxisY = new Graphics();
   AxisY.lineStyle(lineStyle.width, lineStyle.color, lineStyle.alpha);
   AxisY.moveTo(0, 0);
   AxisY.lineTo(0, -canvasY);
@@ -108,15 +108,8 @@ const drawAxis = () => {
 let app: App | null = null;
 const { x, y } = useMouse();
 
-const onMouseEnter = (e: any, pos: number) => {
+const onMouseEnter = (_e: MouseEvent, pos: number) => {
   if (app) return;
-  const currentTarget = e.currentTarget;
-  console.log(e.currentTarget);
-
-  console.log(x.value);
-  console.log(y.value);
-  console.log(x.value + currentTarget.x);
-  console.log(y.value - 100);
   app = createApp({
     render() {
       return h(
@@ -137,7 +130,7 @@ const onMouseEnter = (e: any, pos: number) => {
   app.mount("#pixi-popover");
 };
 
-const onMouseLeave = (e: any) => {
+const onMouseLeave = () => {
   app?.unmount();
   app = null;
 };
@@ -153,7 +146,7 @@ const drawMatchLine1 = (params: { scaleX: number }) => {
   /**
    * 横轴
    */
-  let matchLine = new Graphics();
+  const matchLine = new Graphics();
   matchLine.lineStyle(lineStyle.width, lineStyle.color, lineStyle.alpha);
   matchLine.moveTo(0, y);
   matchLine.lineTo(600, y);
@@ -170,7 +163,7 @@ const drawMatchLine1 = (params: { scaleX: number }) => {
     return circle;
   });
 
-  let PN = new Text("WO12341234123", textStyle);
+  const PN = new Text("WO12341234123", textStyle);
   PN.style = {
     ...PN.style,
     wordWrap: true,
@@ -197,10 +190,10 @@ export const PixiContainer = defineComponent({
     });
 
     const xLength = 2000;
-    const yLength = 1000;
+    // const yLength = 1000;
 
     const scaleX = xLength / canvasX;
-    const scaleY = yLength / canvasY;
+    // const scaleY = yLength / canvasY;
 
     const circle = drawCircle(60, -100, 5);
     const axis = drawAxis();

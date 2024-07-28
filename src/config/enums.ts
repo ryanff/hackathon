@@ -1,4 +1,9 @@
 export enum ROUTE_NAME {
-  HOME = "/",
-  LIST = "/list",
+    HOME = "HOME",
+    LIST = "LIST",
+    TALK = "TALK",
+    PIXI = "PIXI",
+    WEBGL = "WEBGL",
+    VIDEO_UPLOAD = "VIDEO_UPLOAD",
+    INVERSIFY = "INVERSIFY"
 }
