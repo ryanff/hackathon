@@ -1,5 +1,4 @@
 import { defineComponent } from "vue";
-// import { AutoComplete } from "@/components/AutoComplete/AutoComplete";
 
 export default defineComponent({
   name: "Home",

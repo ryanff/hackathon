@@ -1,17 +1,16 @@
-import {createRouter, createWebHistory, RouteRecordRaw} from "vue-router";
-import Home from "@/views/home/Home";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Talk from "@/views/talk/Talk";
 import Pixi from "@/views/pixi/Pixi";
 import Webgl from "@/views/webgl/Webgl";
 import VideoUpload from "@/views/video_upload/VideoUpload";
 import Inversify from "@/views/inversify/Inversify";
-import {ROUTE_NAME} from "../config/enums";
+import { ROUTE_NAME } from "../config/enums";
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
         name: ROUTE_NAME.HOME,
-        component: Home,
+        component: Webgl,
     },
     {
         path: "/list",
