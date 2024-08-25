@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv } from "vite";
 import dts from 'vite-plugin-dts'
-// import { createHtmlPlugin } from "vite-plugin-html";
+import { createHtmlPlugin } from "vite-plugin-html";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { fileURLToPath } from "url";
@@ -10,6 +10,8 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 import mkcert from 'vite-plugin-mkcert'
 
 // const pkg = require("./package.json");
+
+import pkg from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -28,14 +30,15 @@ export default defineConfig(({ mode }) => {
                     }),
                 ],
             }),
-            mkcert()
-            // createHtmlPlugin({
-            //   inject: {
-            //     data: {
-            //       version: pkg.version,
-            //     },
-            //   },
-            // }),
+            mkcert(),
+            createHtmlPlugin({
+                entry: 'src/main.ts',
+                inject: {
+                    data: {
+                        title: `Ryan's Blog`,
+                    },
+                },
+            }),
         ],
         // build: {
         //     outDir: "dist",

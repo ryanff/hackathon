@@ -2,7 +2,7 @@ import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
 import { myContainer } from "@/inversify.config";
 import { TYPES } from "@/constants";
 import { TaskJson, TaskType } from "@/types";
-import { Task } from "@/entity/Task/Task";
+import { Task } from "@/entity/task/Task";
 import { Button } from 'ant-design-vue';
 import { MARVIN_URI } from "@/config/envVars.ts";
 

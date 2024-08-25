@@ -6,6 +6,6 @@ export default defineComponent({
     return {};
   },
   render() {
-    return <div class="w-full">{/* <AutoComplete /> */}</div>;
+    return <div class="w-full">Home</div>;
   },
 });

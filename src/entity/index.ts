@@ -1,1 +1,1 @@
-export { Log } from './Log/Log'
+export { Log } from '@/entity/log/Log'
