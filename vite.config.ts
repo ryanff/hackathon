@@ -9,10 +9,6 @@ import Components from 'unplugin-vue-components/vite';
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 import mkcert from 'vite-plugin-mkcert'
 
-// const pkg = require("./package.json");
-
-import pkg from './package.json'
-
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
 

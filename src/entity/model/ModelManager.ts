@@ -1,25 +1,26 @@
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { GLTF, GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { injectable } from "inversify";
 
 @injectable()
 export class ModelManager {
-    private _loader: any
+    private _loader: GLTFLoader
 
     constructor() {
         this._loader = new GLTFLoader()
     }
 
-    public loadModel(path: string, callback: (e: any) => void) {
+    public loadModel(path: string, callback: (data: GLTF) => void) {
         this._loader.load(
             path,
-            (e: any) => {
-                callback(e)
+            (data: GLTF) => {
+                callback(data)
             },
-            (e: any) => {
-                console.log('加载中', e);
+            (event: ProgressEvent<EventTarget>) => {
+                // console.log('加载中', event);
             },
-            (e: any) => {
-                throw new Error(e)
+            (err: unknown) => {
+                console.error(err);
+                throw new Error('加载模型失败')
             }
         )
 
