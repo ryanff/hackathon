@@ -16,7 +16,7 @@ export class ModelManager {
                 callback(data)
             },
             (event: ProgressEvent<EventTarget>) => {
-                // console.log('加载中', event);
+                console.log('加载中', event);
             },
             (err: unknown) => {
                 console.error(err);

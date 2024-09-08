@@ -5,11 +5,15 @@ import { Camera, Scene } from "three";
 export class Car {
 
     private _model: any
-    private _scene: Scene
-    private _camera: Camera
+    private _scene: Scene | null
+    private _camera: Camera | null
     private _controls: any
 
     constructor() {
+        this._model = null
+        this._scene = null
+        this._camera = null
+        this._controls = null
     }
 
     init(model: any, scene: Scene, camera: Camera, controls: any) {

@@ -11,7 +11,11 @@ export class Light {
         [10, 5, 0]
     ]
 
-    private _scene: Scene
+    private _scene: Scene | null
+
+    constructor() {
+        this._scene = null
+    }
 
     init(scene: Scene) {
         this._scene = scene
@@ -21,7 +25,7 @@ export class Light {
             const directionalLight = new DirectionalLight(0xffffff, 0.5)
             //设置位置
             directionalLight.position.set(...positionArr)
-            this._scene.add(directionalLight)
+            this._scene?.add(directionalLight)
         })
     }
 
