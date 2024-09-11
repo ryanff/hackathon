@@ -4,10 +4,10 @@ import { TYPES } from "@/constants";
 import { carContainer } from "@/inversify.config.ts";
 import { CarRender } from "@/entity/render/CarRender.ts";
 import { useResizeObserver } from "@vueuse/core";
-import { ModelManager } from "@/entity/model/ModelManager.ts";
-import { Car } from "@/entity/model/Car.ts";
+// import { ModelManager } from "@/entity/model/ModelManager.ts";
+// import { Car } from "@/entity/model/Car.ts";
 import { Light } from "@/entity/model/Light.ts";
-import { STATIC_URI } from "@/config/envVars";
+// import { STATIC_URI } from "@/config/envVars";
 
 export const WebglContainer = defineComponent({
   name: "WebglContainer",
@@ -15,8 +15,8 @@ export const WebglContainer = defineComponent({
     const webglContainer = ref();
 
     const carRender = carContainer.get<CarRender>(TYPES.Render);
-    const modelManager = carContainer.get<ModelManager>(TYPES.ModelManager);
-    const car = carContainer.get<Car>(TYPES.Car);
+    // const modelManager = carContainer.get<ModelManager>(TYPES.ModelManager);
+    // const car = carContainer.get<Car>(TYPES.Car);
     const light = carContainer.get<Light>(TYPES.Light);
 
     const init = () => {
@@ -55,17 +55,13 @@ export const WebglContainer = defineComponent({
       useResizeObserver(window.document.body, onResize);
       carRender.renderLoop();
 
-      modelManager.loadModel(
-        `${STATIC_URI}/static/three/glb/911.glb`,
-        (model) => {
-          car.init(
-            model,
-            carRender.scene,
-            carRender.camera,
-            carRender.controls
-          );
-        }
-      );
+      // modelManager.loadModel(
+      //   "/three/glb/911.glb",
+      //   // `${STATIC_URI}/static/three/glb/911.glb`,
+      //   (model) => {
+      //     car.init(model, carRender.scene);
+      //   }
+      // );
       light.init(carRender.scene);
     });
 
