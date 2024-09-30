@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --open",
     "build": "vue-tsc --noEmit --skipLibCheck && vite build",
-    "preview": "vite preview --open"
+    "preview": "vite preview --open",
+    "deploy": "sh deploy.sh"
   },
   "dependencies": {
     "@vueuse/core": "^10.7.2",

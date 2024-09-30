@@ -8,5 +8,3 @@ import "./inversify.config";
 import 'ant-design-vue/dist/reset.css';
 
 createApp(App).use(router).mount("#app");
-
-console.log(123)
